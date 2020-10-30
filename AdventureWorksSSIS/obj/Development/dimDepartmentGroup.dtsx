@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="10/28/2020 4:30:35 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="dimDepartmentGroup"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{5460A36C-27CF-4C08-ABE4-7CAE6850D07A}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{40BBC400-899E-45EB-A13E-E6A3F3D56B87}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -237,107 +237,6 @@ FROM HumanResources.Department</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\DimDepartmentGroup"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="DimDepartmentGroup"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">insert into DimDepartmentGroup(ParentDepartmentGroupKey, DepartmentGroupName)
- Select NULL, 'Corporate' Where not exists(select * from DimDepartmentGroup where DepartmentGroupName='Corporate')
-
-INSERT INTO DimDepartmentGroup(ParentDepartmentGroupKey, DepartmentGroupName)
-VALUES ((SELECT DepartmentGroupKey FROM DimDepartmentGroup WHERE DepartmentGroupName = 'Corporate') , ?)</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\DimDepartmentGroup.Connections[OleDbConnection]"
-                  connectionManagerID="{90DB8CB8-F549-4A0D-B32C-A7B02A989FD9}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[localhost.AdventureWorksDW2014]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\DimDepartmentGroup.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\DimDepartmentGroup.Inputs[OLE DB Command Input].Columns[DepartmentGroupName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="DepartmentGroupName"
-                      externalMetadataColumnId="Package\Data Flow Task\DimDepartmentGroup.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Data Flow Task\Department.Outputs[OLE DB Source Output].Columns[DepartmentGroupName]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\DimDepartmentGroup.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="wstr"
-                      length="50"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\DimDepartmentGroup.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\Data Flow Task\DimDepartmentGroup.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task\DimDepartmentGroup.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\Data Flow Task\DimDepartmentGroup.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\DimDepartmentGroup.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\DimDepartmentGroup.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\DimDepartmentGroup.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\DimDepartmentGroup.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Data Flow Task\Lookup Duplicate DepartmentGroup"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -498,6 +397,107 @@ where [refTable].[DepartmentGroupName] = ?</property>
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">insert into DimDepartmentGroup(ParentDepartmentGroupKey, DepartmentGroupName)
+ Select NULL, 'Corporate' Where not exists(select * from DimDepartmentGroup where DepartmentGroupName='Corporate')
+
+INSERT INTO DimDepartmentGroup(ParentDepartmentGroupKey, DepartmentGroupName)
+VALUES ((SELECT DepartmentGroupKey FROM DimDepartmentGroup WHERE DepartmentGroupName = 'Corporate') , ?)</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{90DB8CB8-F549-4A0D-B32C-A7B02A989FD9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.AdventureWorksDW2014]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[DepartmentGroupName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DepartmentGroupName"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Data Flow Task\Department.Outputs[OLE DB Source Output].Columns[DepartmentGroupName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -507,7 +507,7 @@ where [refTable].[DepartmentGroupName] = ?</property>
               startId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Lookup No Match Output]"
-              endId="Package\Data Flow Task\DimDepartmentGroup.Inputs[OLE DB Command Input]"
+              endId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
               name="Lookup No Match Output"
               startId="Package\Data Flow Task\Lookup Duplicate DepartmentGroup.Outputs[Lookup No Match Output]" />
             <path
@@ -625,8 +625,8 @@ where [refTable].[DepartmentGroupName] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="187,42"
-          Id="Package\Data Flow Task\DimDepartmentGroup"
+          Size="173,42"
+          Id="Package\Data Flow Task\OLE DB Command"
           TopLeft="412,219" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup No Match Output]"
