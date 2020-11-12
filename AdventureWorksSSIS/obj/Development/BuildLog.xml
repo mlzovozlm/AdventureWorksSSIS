@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>AdventureWorksSSIS</Name>
-    <LastWriteTime>2020-10-28T11:54:03.9292076Z</LastWriteTime>
+    <LastWriteTime>2020-10-30T01:42:10.3430808Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -43,7 +43,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>dimSaleTeritory.dtsx</Name>
-      <LastWriteTime>2020-10-27T17:09:14Z</LastWriteTime>
+      <LastWriteTime>2020-10-30T01:42:10.3560733Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -53,12 +53,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>FactSalesQuota.dtsx</Name>
-      <LastWriteTime>2020-10-27T18:23:30Z</LastWriteTime>
+      <LastWriteTime>2020-10-30T01:42:10.3700659Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>dimDepartmentGroup.dtsx</Name>
-      <LastWriteTime>2020-10-30T01:34:21.8245497Z</LastWriteTime>
+      <LastWriteTime>2020-10-30T01:35:26.0592744Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

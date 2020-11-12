@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="VTN-DUCPA-LT"
   DTS:CreatorName="VTN-DUCPA-LT\Ducpa"
-  DTS:DTSID="{B06D3300-D2C6-4BCA-9A7A-C65A0FE3BA41}"
+  DTS:DTSID="{EDB51F69-C784-4597-81A5-EB66D0D32F9E}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.132"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="dimSalesTerritory"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{51939D86-53E2-41C3-B755-CA5F4FA03F21}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{8CFCA517-5E5D-4E2A-9169-07A4BA520D5D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1081,7 +1081,7 @@ where [refTable].[CountryRegionCode] = ?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="152,42.6666666666667"
+          Size="152,43"
           Id="Package\Data Flow Task"
           TopLeft="141.249997895211,116.999997907877" />
       </GraphLayout>
@@ -1304,7 +1304,7 @@ where [refTable].[CountryRegionCode] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1314,7 +1314,7 @@ where [refTable].[CountryRegionCode] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
